@@ -69,11 +69,9 @@ var postSchema = {
 };
 
 var postBody = {"userId": 1,
-"id": 101,
 "title": "test",
 "body": "this is a test body"
 };
-
 
   it("GET posts has 200 response", function(done){
     api.get('/posts')
@@ -109,7 +107,11 @@ var postBody = {"userId": 1,
     .expect(200)
     .end(function (err,res) {
       //**assert response from a request
-      expect(JSON.stringify(res.body)).to.equal(JSON.stringify(postBody));
+      let response = JSON.stringify(res.body);
+      let post = JSON.stringify(postBody);
+      expect(response.userId).to.equal(post.userId);
+      expect(response.title).to.equal(post.title);
+      expect(response.body).to.equal(post.body);
       done();
     });
   });
