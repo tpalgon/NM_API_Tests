@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "node ./node_modules/mocha/bin/mocha --recursive"
+    "pretest": "eslint --ignore-path .gitignore .",
+    "test": "node ./node_modules/mocha/bin/mocha"
   },
   "author": "",
   "license": "ISC",
@@ -13,5 +14,9 @@
     "chai-json-schema": "^1.5.1",
     "mocha": "^6.2.2",
     "supertest": "^4.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^6.7.2",
+    "eslint-config-strongloop": "^2.1.0"
   }
 }
